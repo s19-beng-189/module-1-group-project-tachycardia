@@ -4,6 +4,9 @@ clf       %and figures
 global T TS tauS tauD;
 global Csa Rs RMi RAo dt CHECK PLA;
 in_LV_sa  %initialize
+Csa=127*Csa/192; %decreased Csa
+Rs=Rs+1.9;   %increased Rs
+CLVS=CLVS*4/3;   %increased CLVS
 for klok=1:klokmax
   t=klok*dt;
   PLV_old=PLV;
@@ -29,11 +32,25 @@ end
 %plot results:
 figure(1)
 subplot(3,1,1), plot(t_plot,CLV_plot)
+title('Left Ventricular Compliance');
 subplot(3,1,2), plot(t_plot,PLV_plot,t_plot,Psa_plot)
+legend('PLV','Psa');
+title('Left ventricular pressure and systemic arterial pressure');
 subplot(3,1,3), plot(t_plot,QMi_plot,t_plot,QAo_plot,t_plot,Qs_plot)
+title('computer simulated pulsatile blood flow')
+legend('Mitral valve Flow', 'Arterial Valve flow','systemic arterial flow')
 %left ventricular pressure-volume loop
 figure(2)
 plot(VLV_plot,PLV_plot)
+title('PV loop for left ventricle');
+xlabel('Volume');
+ylabel('Pressure');
+ylim([0 130])
 %systemic arterial pressure-volume ``loop''
 figure(3)
 plot(Vsa_plot,Psa_plot)
+title('PV loop for systemic artery');
+xlabel('Volume');
+ylabel('Pressure');
+ESP=max(Psa_plot(1200:1500)); %end systolic pressure
+EDP=min(Psa_plot(1200:1500)); %end diastolic pressure
