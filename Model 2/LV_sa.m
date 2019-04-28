@@ -3,6 +3,7 @@ clear all %clear all variables
 clf       %and figures
 global T TS tauS tauD;
 global Csa Rs RMi RAo dt CHECK PLA;
+in_LV_sa
 for klok=1:klokmax
   t=klok*dt;
   PLV_old=PLV;
