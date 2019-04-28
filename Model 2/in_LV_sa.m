@@ -23,7 +23,7 @@ dt=0.01*T;    %Time step duration (minutes)
 klokmax=15*T/dt; %Total number of timesteps 
 %This choice implies simulation of 15 cardiac cycles.
 PLV=5;                    %Initial value of PLV (mmHg)
-Psa=80;                   %Initial value of Psa (mmHg)
+Psa=80*.5;                   %Initial value of Psa (mmHg)
 %set initial valve states:
 SMi=(PLA>PLV); %evaluates to 1 if PLA>PLV, 0 otherwise
 SAo=(PLV>Psa); %evaluates to 1 if PLV>Psa, 0 otherwise

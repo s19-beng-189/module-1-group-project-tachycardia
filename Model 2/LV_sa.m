@@ -35,7 +35,7 @@ legend('PLV','Psa');
 title('Left ventricular pressure and systemic arterial pressure');
 subplot(3,1,3), plot(t_plot,QMi_plot,t_plot,QAo_plot,t_plot,Qs_plot)
 title('computer simulated pulsatile blood flow')
-legend('Mitral valve Flow', 'Arterial Valve flow','systemic arterial flow')
+legend('Mitral valve Flow', 'Aortic Valve flow','systemic arterial flow')
 %left ventricular pressure-volume loop
 figure(2)
 plot(VLV_plot,PLV_plot)
