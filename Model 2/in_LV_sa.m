@@ -15,7 +15,8 @@ Csa=0.00175*127/192;  %Systemic arterial compliance (liters/mmHg)
 CLVS=0.00003*4/3; %Min (systolic)  value of CLV (liters/mmHg)
 CLVD=0.0146;  %Max (diastolic) value of CLV (liters/mmHg)
 Vsad=0.825;   %Systemic arterial volume when Psa=0 (liters)
-VLVd=0.027;   %Left ventricular volume when PLV=0 (liters)
+%doubled volume remaining after ejection to decrease the ejection fraction
+VLVd=0.027*2;   %Left ventricular volume when PLV=0 (liters)
 PLA=5;        %Left atrial pressure (mmHg)
 dt=0.01*T;    %Time step duration (minutes)
 %This choice implies 100 timesteps per cardiac cycle.
