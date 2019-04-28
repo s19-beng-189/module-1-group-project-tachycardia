@@ -3,10 +3,6 @@ clear all %clear all variables
 clf       %and figures
 global T TS tauS tauD;
 global Csa Rs RMi RAo dt CHECK PLA;
-in_LV_sa  %initialize
-Csa=127*Csa/192; %decreased Csa
-Rs=Rs+1.9;   %increased Rs
-CLVS=CLVS*4/3;   %increased CLVS
 for klok=1:klokmax
   t=klok*dt;
   PLV_old=PLV;
