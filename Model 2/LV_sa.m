@@ -42,7 +42,6 @@ plot(VLV_plot,PLV_plot)
 title('PV loop for left ventricle');
 xlabel('Volume');
 ylabel('Pressure');
-ylim([0 130])
 %systemic arterial pressure-volume ``loop''
 figure(3)
 plot(Vsa_plot,Psa_plot)
