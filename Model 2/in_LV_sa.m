@@ -17,13 +17,13 @@ CLVD=(0.0146)*1.3;  %Max (diastolic) value of CLV (liters/mmHg)
 Vsad=0.825;   %Systemic arterial volume when Psa=0 (liters)
 %doubled volume remaining after ejection to decrease the ejection fraction
 VLVd=0.027*4;   %Left ventricular volume when PLV=0 (liters)
-PLA=5;        %Left atrial pressure (mmHg)
+PLA=5*.8;        %Left atrial pressure (mmHg) decrease 20%
 dt=0.01*T;    %Time step duration (minutes)
 %This choice implies 100 timesteps per cardiac cycle.
 klokmax=15*T/dt; %Total number of timesteps 
 %This choice implies simulation of 15 cardiac cycles.
 PLV=5;                    %Initial value of PLV (mmHg)
-Psa=80;                   %Initial value of Psa (mmHg)
+Psa=80*.5;                   %Initial value of Psa (mmHg)
 %set initial valve states:
 SMi=(PLA>PLV); %evaluates to 1 if PLA>PLV, 0 otherwise
 SAo=(PLV>Psa); %evaluates to 1 if PLV>Psa, 0 otherwise
