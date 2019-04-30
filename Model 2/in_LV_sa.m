@@ -8,6 +8,13 @@ Rs=17.86+1.9;     %Systemic resistance (mmHg/(liter/minute))
 %just small enough to be negligible:
 RMi=0.01;     %mitral valve resistance (mmHg/(liter/minute))
 RAo=0.01;     %aortic valve resistance (mmHg/(liter/minute))
+
+%Oxygen Concentration Coeffcients
+a_O2 = 0.0031; %mLO2/mmHgO2/dL of blood from Henry's Law
+P_O2 = 70; %mmHg O2
+O_2 = a_O2*P_O2; %mL/dL of blood
+M = 0.250; %L/min
+
 %The following value of Csa is approximate;
 %needs adjustment to make blood pressure 120/80:
 
@@ -22,7 +29,7 @@ dt=0.01*T;    %Time step duration (minutes)
 %This choice implies 100 timesteps per cardiac cycle.
 klokmax=15*T/dt; %Total number of timesteps 
 %This choice implies simulation of 15 cardiac cycles.
-PLV=5;                    %Initial value of PLV (mmHg)
+PLV=5*0.8;                    %Initial value of PLV (mmHg) decrease 20%
 Psa=81;                   %Initial value of Psa (mmHg)
 %set initial valve states:
 SMi=(PLA>PLV); %evaluates to 1 if PLA>PLV, 0 otherwise
