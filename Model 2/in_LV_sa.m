@@ -3,7 +3,7 @@ T =0.0125;    %Duration of heartbeat (minutes)
 TS=0.0050;    %Duration of systole   (minutes)
 tauS=0.0025;  %CLV time constant during systole (minutes)
 tauD=0.0075;  %CLV time constant during diastole (minutes)
-Rs=(17.86+1.9);     %Systemic resistance (mmHg/(liter/minute))
+Rs=(17.86+1.9)*2;     %Systemic resistance (mmHg/(liter/minute))
 %Valve resistances here are not supposed to be realistic,
 %just small enough to be negligible:
 RMi=0.01;     %mitral valve resistance (mmHg/(liter/minute))
