@@ -22,30 +22,30 @@ for klok=1:klokmax
   Vsa_plot(klok)=Csa*Psa+Vsad;
   QMi_plot(klok)=SMi*(PLA-PLV)/RMi;
   QAo_plot(klok)=SAo*(PLV-Psa)/RAo;
-  Qs_plot(klok)=Psa/Rs;
+  Qs_plot(klok)=(Psa/(Ro*O_2))+(M/O_2);
   SMi_plot(klok)=SMi;
   SAo_plot(klok)=SAo;
 end
 %plot results:
 figure(1)
 subplot(3,1,1), plot(t_plot,CLV_plot)
-title('Left Ventricular Compliance');
+title('Left Ventricular Compliance: Exercise');
 subplot(3,1,2), plot(t_plot,PLV_plot,t_plot,Psa_plot)
 legend('PLV','Psa');
-title('Left ventricular pressure and systemic arterial pressure');
+title('Left ventricular pressure and systemic arterial pressure:exercise');
 subplot(3,1,3), plot(t_plot,QMi_plot,t_plot,QAo_plot,t_plot,Qs_plot)
-title('computer simulated pulsatile blood flow')
+title('computer simulated pulsatile blood flow:exercise')
 legend('Mitral valve Flow', 'Aortic Valve flow','systemic arterial flow')
 %left ventricular pressure-volume loop
 figure(2)
-plot(VLV_plot,PLV_plot)
-title('PV loop for left ventricle');
+plot(VLV_plot(1200:1500),PLV_plot(1200:1500))
+title('PV loop for left ventricle: Blood Clot');
 xlabel('Volume');
 ylabel('Pressure');
 %systemic arterial pressure-volume ``loop''
 figure(3)
 plot(Vsa_plot,Psa_plot)
-title('PV loop for systemic artery');
+title('PV loop for systemic artery: Blood Clot');
 xlabel('Volume');
 ylabel('Pressure');
 ESP=max(Psa_plot(1200:1500)); %end systolic pressure
