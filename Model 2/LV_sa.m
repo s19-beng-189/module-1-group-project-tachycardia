@@ -22,7 +22,7 @@ for klok=1:klokmax
   Vsa_plot(klok)=Csa*Psa+Vsad;
   QMi_plot(klok)=SMi*(PLA-PLV)/RMi;
   QAo_plot(klok)=SAo*(PLV-Psa)/RAo;
-  Qs_plot(klok)=(Psa/Rs)-(M/O_2);
+  Qs_plot(klok)=(Psa/(Ro*O_2))+(M/O_2);
   SMi_plot(klok)=SMi;
   SAo_plot(klok)=SAo;
 end
