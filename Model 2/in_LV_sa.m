@@ -14,17 +14,17 @@ a_O2 = 0.0031; %mLO2/mmHgO2/dL of blood from Henry's Law
 P_O2 = 70; %mmHg O2
 O_2 = a_O2*P_O2; %mL/dL of blood
 M = 0.250; %L/min
-Ro = Rs/(O_2-(M/6.031));
+Ro = Rs/(O_2-(M/6.031)); %6.031 is healthy normal Qs
  
 %The following value of Csa is approximate;
 %needs adjustment to make blood pressure 120/80:
  
-Csa=0.00175*127/192;  %Systemic arterial compliance (liters/mmHg)
+Csa=(0.00175*127/192);  %Systemic arterial compliance (liters/mmHg)
 CLVS=(0.00003*4/3)*5; %Min (systolic)  value of CLV (liters/mmHg)
 CLVD=(0.0146)*1.3;  %Max (diastolic) value of CLV (liters/mmHg)
 Vsad=0.825;   %Systemic arterial volume when Psa=0 (liters)
 %doubled volume remaining after ejection to decrease the ejection fraction
-VLVd=(0.027*4)/0.6;   %Left ventricular volume when PLV=0 (liters)
+VLVd=(0.027*4);   %Left ventricular volume when PLV=0 (liters)
 PLA=(5*.8);        %Left atrial pressure (mmHg) decrease 20%
 dt=0.01*T;    %Time step duration (minutes)
 %This choice implies 100 timesteps per cardiac cycle.
