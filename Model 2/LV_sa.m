@@ -29,12 +29,12 @@ end
 %plot results:
 figure(1)
 subplot(3,1,1), plot(t_plot,CLV_plot)
-title('Left Ventricular Compliance: Exercise');
+title('Left Ventricular Compliance: Blood Clot');
 subplot(3,1,2), plot(t_plot,PLV_plot,t_plot,Psa_plot)
 legend('PLV','Psa');
-title('Left ventricular pressure and systemic arterial pressure:exercise');
+title('Left ventricular pressure and systemic arterial pressure: Blood Clot');
 subplot(3,1,3), plot(t_plot,QMi_plot,t_plot,QAo_plot,t_plot,Qs_plot)
-title('computer simulated pulsatile blood flow:exercise')
+title('computer simulated pulsatile blood flow: Blood Clot')
 legend('Mitral valve Flow', 'Aortic Valve flow','systemic arterial flow')
 %left ventricular pressure-volume loop
 figure(2)
