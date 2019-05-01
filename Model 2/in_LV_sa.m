@@ -14,24 +14,22 @@ a_O2 = 0.0031; %mLO2/mmHgO2/dL of blood from Henry's Law
 P_O2 = 70; %mmHg O2
 O_2 = a_O2*P_O2; %mL/dL of blood
 M = 0.250; %L/min
-Ro = Rs/(O_2-(M/6.031)); %6.031 is healthy normal Qs
+Ro = Rs/(O_2-(M/6.031)); %6.031 is the max Qs in healthy individuals, solve for Ro
  
-%The following value of Csa is approximate;
-%needs adjustment to make blood pressure 120/80:
- 
+%The following value of Csa is approximate to make blood pressure 120/80 without disease:
 Csa=(0.00175*127/192);  %Systemic arterial compliance (liters/mmHg)
 CLVS=(0.00003*4/3)*5; %Min (systolic)  value of CLV (liters/mmHg)
 CLVD=(0.0146)*1.3;  %Max (diastolic) value of CLV (liters/mmHg)
 Vsad=0.825;   %Systemic arterial volume when Psa=0 (liters)
 %doubled volume remaining after ejection to decrease the ejection fraction
 VLVd=(0.027*4);   %Left ventricular volume when PLV=0 (liters)
-PLA=(5*.8);        %Left atrial pressure (mmHg) decrease 20%
+PLA=5;        %Left atrial pressure (mmHg)
 dt=0.01*T;    %Time step duration (minutes)
 %This choice implies 100 timesteps per cardiac cycle.
 klokmax=15*T/dt; %Total number of timesteps 
 %This choice implies simulation of 15 cardiac cycles.
-PLV=(5*0.8);                    %Initial value of PLV (mmHg) decrease 20%
-Psa=81;                   %Initial value of Psa (mmHg)
+PLV=5;                    %Initial value of PLV (mmHg)
+Psa=81;                   %Initial value of Psa (mmHg), mean arterial pressure of diseased model
 %set initial valve states:
 SMi=(PLA>PLV); %evaluates to 1 if PLA>PLV, 0 otherwise
 SAo=(PLV>Psa); %evaluates to 1 if PLV>Psa, 0 otherwise
