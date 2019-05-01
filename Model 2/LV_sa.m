@@ -33,23 +33,23 @@ min(Qs_plot)
 %plot results:
 figure(1)
 subplot(3,1,1), plot(t_plot,CLV_plot)
-title('Left Ventricular Compliance: Blood Clot (Uncompensated)');
+title('Left Ventricular Compliance: Exercise');
 subplot(3,1,2), plot(t_plot,PLV_plot,t_plot,Psa_plot)
 legend('PLV','Psa');
-title('Left ventricular pressure and systemic arterial pressure: Blood Clot (Uncompensated)');
+title('Left ventricular pressure and systemic arterial pressure:exercise');
 subplot(3,1,3), plot(t_plot,QMi_plot,t_plot,QAo_plot,t_plot,Qs_plot)
-title('computer simulated pulsatile blood flow: Blood Clot (Uncompensated)')
+title('computer simulated pulsatile blood flow:exercise')
 legend('Mitral valve Flow', 'Aortic Valve flow','systemic arterial flow')
 %left ventricular pressure-volume loop
 figure(2)
 plot(VLV_plot(1200:1500),PLV_plot(1200:1500))
-title('PV loop for left ventricle: Blood Clot (Uncompensated)');
+title('PV loop for left ventricle: exercise');
 xlabel('Volume');
 ylabel('Pressure');
 %systemic arterial pressure-volume ``loop''
 figure(3)
 plot(Vsa_plot,Psa_plot)
-title('PV loop for systemic artery: Blood Clot (Uncompensated)');
+title('PV loop for systemic artery: exercise');
 xlabel('Volume');
 ylabel('Pressure');
 ESP=max(Psa_plot(1200:1500)); %end systolic pressure
