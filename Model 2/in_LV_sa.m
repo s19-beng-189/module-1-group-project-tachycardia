@@ -10,20 +10,19 @@ RMi=0.01;     %mitral valve resistance (mmHg/(liter/minute))
 RAo=0.01;     %aortic valve resistance (mmHg/(liter/minute))
 %The following value of Csa is approximate;
 %needs adjustment to make blood pressure 120/80:
-
 Csa=0.00175*127/192;  %Systemic arterial compliance (liters/mmHg)
 CLVS=(0.00003*4/3)*5; %Min (systolic)  value of CLV (liters/mmHg)
 CLVD=(0.0146)*1.3;  %Max (diastolic) value of CLV (liters/mmHg)
 Vsad=0.825;   %Systemic arterial volume when Psa=0 (liters)
 %doubled volume remaining after ejection to decrease the ejection fraction
 VLVd=0.027*4;   %Left ventricular volume when PLV=0 (liters)
-PLA=5*.8;        %Left atrial pressure (mmHg) decrease 20%
+PLA=5*.8;        %Left atrial pressure (mmHg) decrease 20% should not exceed 28mmHg
 dt=0.01*T;    %Time step duration (minutes)
 %This choice implies 100 timesteps per cardiac cycle.
 klokmax=15*T/dt; %Total number of timesteps 
 %This choice implies simulation of 15 cardiac cycles.
 PLV=5;                    %Initial value of PLV (mmHg)
-Psa=81;                   %Initial value of Psa (mmHg)
+Psa=75.5;                   %Initial value of Psa (mmHg)
 %set initial valve states:
 SMi=(PLA>PLV); %evaluates to 1 if PLA>PLV, 0 otherwise
 SAo=(PLV>Psa); %evaluates to 1 if PLV>Psa, 0 otherwise
