@@ -22,31 +22,39 @@ for klok=1:klokmax
   Vsa_plot(klok)=Csa*Psa+Vsad;
   QMi_plot(klok)=SMi*(PLA-PLV)/RMi;
   QAo_plot(klok)=SAo*(PLV-Psa)/RAo;
-  Qs_plot(klok)=(Psa/(Ro*O_2))+(M/O_2);
+  Qvital_plot(klok)=Psa/Rs; 
+  Rosm = (Rs)/(O_2-(Msm/Qvital_plot(klok))); 
+  Qskeletalmuscle_plot(klok)=(Psa/(Rosm*O_2))+(Msm/O_2); 
+  Ronv = (Rs)/(O_2-(Mnv/Qvital_plot(klok)));
+  Qnon_vital_plot(klok)=(Psa/(Ronv*O_2))+(Mnv/O_2);
   SMi_plot(klok)=SMi;
   SAo_plot(klok)=SAo;
 end
 
 %plot results:
 figure(1)
-subplot(3,1,1), plot(t_plot,CLV_plot)
-title('Left Ventricular Compliance: Compensated Exercise with DCM');
-subplot(3,1,2), plot(t_plot,PLV_plot,t_plot,Psa_plot)
+subplot(4,1,1), plot(t_plot,CLV_plot)
+title('Left Ventricular Compliance: DCM');
+subplot(4,1,2), plot(t_plot,PLV_plot,t_plot,Psa_plot)
 legend('PLV','Psa');
-title('Left Ventricular Pressure and Systemic Arterial Pressure: Compensated Exercise with DCM');
-subplot(3,1,3), plot(t_plot,QMi_plot,t_plot,QAo_plot,t_plot,Qs_plot)
-title('Computer Simulated Pulsatile Blood Flow: Compensated Exercise with DCM')
-legend('Mitral Valve Flow (QMi)', 'Aortic Valve Flow (QAo)','Systemic Arterial Flow (Qs)')
+title('Left Ventricular Pressure and Systemic Arterial Pressure: DCM');
+subplot(4,1,3), plot(t_plot,QMi_plot,t_plot,QAo_plot)
+title('Computer Simulated Blood Flow: DCM')
+legend('Mitral Valve Flow (QMi)', 'Aortic Valve Flow (QAo)')
+subplot(4,1,4), plot(t_plot,Qvital_plot,t_plot,Qskeletalmuscle_plot,t_plot,Qnon_vital_plot)
+title('Computer Simulated Blood Flow: DCM')
+legend('Vital Organ Blood Flow','Skeletal Muscle Blood Flow','Non-Vital Organ Flow')
+
 %left ventricular pressure-volume loop
 figure(2)
 plot(VLV_plot(1200:1500),PLV_plot(1200:1500))
-title('PV Loop for Left Ventricle: Compensated Exercise with DCM');
+title('PV Loop for Left Ventricle: DCM');
 xlabel('Volume');
 ylabel('Pressure');
 %systemic arterial pressure-volume ``loop''
 figure(3)
 plot(Vsa_plot,Psa_plot)
-title('PV "loop" for Systemic Artery: Compensated Exercise with DCM');
+title('PV "loop" for Systemic Artery: DCM');
 xlabel('Volume');
 ylabel('Pressure');
 ESP=max(Psa_plot(1200:1500)); %end systolic pressure
